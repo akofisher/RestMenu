@@ -43,6 +43,7 @@ export const Products = [
     name: 'ოსტრი',
     production: '270გრ',
     id: 0,
+    cartCount: 1,
   },
   {
     image:
@@ -54,6 +55,7 @@ export const Products = [
     production: '270გრ',
     name: 'ხარჩო',
     id: 1,
+    cartCount: 1,
   },
   {
     image: 'https://lui.coffee/wp-content/uploads/2021/02/3k8a4396-scaled.jpg',
@@ -63,6 +65,7 @@ export const Products = [
     production: '270გრ',
     name: 'ცეზარი',
     id: 2,
+    cartCount: 1,
   },
   {
     image:
@@ -73,6 +76,7 @@ export const Products = [
     name: 'ბერძნული სალათი',
     production: '270გრ',
     id: 3,
+    cartCount: 1,
   },
   {
     image: 'https://gvino.me/wp-content/uploads/2022/10/5D4A6114.jpg',
@@ -82,6 +86,7 @@ export const Products = [
     production: '200მლ',
     name: 'ღვინო',
     id: 4,
+    cartCount: 1,
   },
   {
     image:
@@ -92,6 +97,7 @@ export const Products = [
     production: '500მლ',
     name: 'კოკა-კოლა',
     id: 5,
+    cartCount: 1,
   },
   {
     image: 'https://mkurnali.ge/media/images/new_images/araqisi-1.jpg',
@@ -101,6 +107,7 @@ export const Products = [
     name: 'მიწისთხილი',
     production: '270გრ',
     id: 6,
+    cartCount: 1,
   },
   {
     image: 'https://hotsale.ge/files/offers/aqciebi/kveba/Five/italiana.jpg',
@@ -110,6 +117,7 @@ export const Products = [
     name: 'კანჭის მენიუ',
     production: '1.200კგ',
     id: 7,
+    cartCount: 1,
   },
   {
     image:
@@ -120,6 +128,7 @@ export const Products = [
     production: '270გრ',
     name: 'ოსტრი',
     id: 0,
+    cartCount: 1,
   },
   {
     image:
@@ -130,6 +139,7 @@ export const Products = [
     production: '270გრ',
     name: 'ხარჩო',
     id: 1,
+    cartCount: 1,
   },
   {
     image: 'https://lui.coffee/wp-content/uploads/2021/02/3k8a4396-scaled.jpg',
@@ -139,6 +149,7 @@ export const Products = [
     name: 'ცეზარი',
     production: '270გრ',
     id: 2,
+    cartCount: 1,
   },
   {
     image:
@@ -149,6 +160,7 @@ export const Products = [
     name: 'ბერძნული სალათი',
     production: '270გრ',
     id: 3,
+    cartCount: 1,
   },
   {
     image: 'https://gvino.me/wp-content/uploads/2022/10/5D4A6114.jpg',
@@ -158,6 +170,7 @@ export const Products = [
     production: '270გრ',
     name: 'ღვინო',
     id: 4,
+    cartCount: 1,
   },
   {
     image:
@@ -168,6 +181,7 @@ export const Products = [
     production: '270გრ',
     name: 'კოკა-კოლა',
     id: 5,
+    cartCount: 1,
   },
   {
     image: 'https://mkurnali.ge/media/images/new_images/araqisi-1.jpg',
@@ -177,6 +191,7 @@ export const Products = [
     production: '270გრ',
     name: 'მიწისთხილი',
     id: 6,
+    cartCount: 1,
   },
   {
     image: 'https://hotsale.ge/files/offers/aqciebi/kveba/Five/italiana.jpg',
@@ -186,5 +201,6 @@ export const Products = [
     production: '270გრ',
     name: 'კანჭის მენიუ',
     id: 7,
+    cartCount: 1,
   },
 ]

@@ -2,11 +2,14 @@ import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import More from '../../Img/more.svg'
 // import { SINGLE_PAGE } from '../../routes'
+import { SaveCart } from '../../CartLogic'
+import Cart from '../../Img/cart.png'
 import './ProductCard.css'
 
 export default function ProductCard({ props }) {
   const nav = useNavigate()
   const [showItem, setShowItem] = useState(-1)
+  const [count, setCount] = useState(1)
 
   return (
     <>
@@ -26,6 +29,27 @@ export default function ProductCard({ props }) {
           <div className="ProductTexts">
             <p className="ProductName">{props.name}</p>
             <p className="ProductDescription">{props.description}</p>
+            <div className="quantity_container">
+              <button
+                className="quantity_btn"
+                onClick={(e) => {
+                  e.stopPropagation()
+                  if (count > 1) setCount(count - 1)
+                }}
+              >
+                -
+              </button>
+              <span className="quantity_count">{count}</span>
+              <button
+                className="quantity_btn"
+                onClick={(e) => {
+                  e.stopPropagation()
+                  setCount(count + 1)
+                }}
+              >
+                +
+              </button>
+            </div>
           </div>
           <div className="ProductPrices">
             {props.id % 2 == 1 ? (
@@ -39,6 +63,15 @@ export default function ProductCard({ props }) {
             <p className="ProductProduction">{props.production}</p>
           </div>
           <img src={More} alt="MoreIcon" className="MoreIcon" />
+          <img
+            onClick={(e) => {
+              e.stopPropagation()
+              SaveCart(props, count)
+            }}
+            src={Cart}
+            alt="CartIcon"
+            className="CartIcon"
+          />
         </button>
       ) : (
         <button
@@ -55,6 +88,7 @@ export default function ProductCard({ props }) {
           <img src={props.image} alt="" className="ProductImageOnSingl" />
           <div className="ProductTextsContainerOnShow">
             <p className="ProductName">{props.name}</p>
+
             <p className="ProductDesription">{props.description}</p>
           </div>
           <div className="ProductPricesContainerOnShow">
@@ -67,6 +101,38 @@ export default function ProductCard({ props }) {
               <p className="ProductPriceSingl">{props.price}₾</p>
             )}
             <p className="ProductProductionSingl">{props.production}</p>
+          </div>
+          <div className="quantity_cart_onshow">
+            <div className="quantity_container">
+              <button
+                className="quantity_btn"
+                onClick={(e) => {
+                  e.stopPropagation()
+                  if (count > 1) setCount(count - 1)
+                }}
+              >
+                -
+              </button>
+              <span className="quantity_count">{count}</span>
+              <button
+                className="quantity_btn"
+                onClick={(e) => {
+                  e.stopPropagation()
+                  setCount(count + 1)
+                }}
+              >
+                +
+              </button>
+            </div>
+            <img
+              onClick={(e) => {
+                e.stopPropagation()
+                SaveCart(props, count)
+              }}
+              src={Cart}
+              alt="CartIcon"
+              className="CartIconOnShow"
+            />
           </div>
         </button>
       )}

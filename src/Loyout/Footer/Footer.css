@@ -5,10 +5,12 @@
   background-size: cover;
   background-repeat: no-repeat; */
 
-  background-image: linear-gradient(#b2eb39, #b1d465) !important;
+  /* background-image: linear-gradient(#b2eb39, #b1d465) !important; */
   border-radius: 8px;
   overflow: hidden;
   padding: 15px;
+  background-color: #e8dfe0;
+  box-shadow: 4px 4px 4px 4px lightgrey;
 }
 .RestaurantLogo {
   width: 25%;
