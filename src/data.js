@@ -31,6 +31,22 @@ export const Categories = [
     name: 'კომბო მენიუ',
     id: 7,
   },
+  {
+    name: 'ალკოჰოლური სასმელები',
+    id: 4,
+  },
+  {
+    name: 'უალკოჰოლო სასმელები',
+    id: 5,
+  },
+  {
+    name: 'საფირმო',
+    id: 6,
+  },
+  {
+    name: 'კომბო მენიუ',
+    id: 7,
+  },
 ]
 
 export const Products = [

@@ -99,7 +99,7 @@ export const SaveCart = (cartItem, cartCnt) => {
         // console.log('როცა კონკრ პროდ პირველად დაემატა')
       } else {
         if (
-          UserCart.get(cartItem.UID.toString()).PRODUCT_CART_COUNT
+          UserCart.get(cartItem.UID.toString()).cartCount
           // +
           //   Number(cartCount) <=
           //   UserCart.get(cartItem.UID.toString()).PRODUCT_COUNT ||
@@ -160,15 +160,15 @@ export const LoadCart = () => {
   return new Map(JSON.parse(localStorage.getItem('UserCart')))
 }
 
-export const ChangeCartItemCount = (UID, cartCount) => {
+export const ChangeCartItemCount = (id, cartCnt) => {
   let UserCart = localStorage.getItem('UserCart')
   UserCart = new Map(JSON.parse(localStorage.getItem('UserCart')))
 
   if (
-    UserCart.get(UID.toString()) != undefined ||
-    UserCart.get(UID.toString()) != null
+    UserCart.get(id.toString()) != undefined ||
+    UserCart.get(id.toString()) != null
   ) {
-    UserCart.get(UID.toString()).PRODUCT_CART_COUNT += Number(cartCount)
+    UserCart.get(id.toString()).cartCount += Number(cartCnt)
     localStorage.setItem(
       'UserCart',
       JSON.stringify(Array.from(UserCart.entries())),
@@ -176,7 +176,7 @@ export const ChangeCartItemCount = (UID, cartCount) => {
   }
 }
 
-export const RemoveFromCart = (UID, COUNT, STEP) => {
+export const RemoveFromCart = (UID, COUNT) => {
   // console.log(STEP, 'STEP')
   let UserCart = localStorage.getItem('UserCart')
   UserCart = new Map(JSON.parse(localStorage.getItem('UserCart')))
@@ -191,7 +191,7 @@ export const RemoveFromCart = (UID, COUNT, STEP) => {
       JSON.stringify(Array.from(UserCart.entries())),
     )
     var el = document.getElementById(`${UID}`)
-    if (STEP > 0 && COUNT > 0) {
+    if (COUNT > 0) {
       el.remove()
     }
 
@@ -208,30 +208,31 @@ export const CartSumData = () => {
 
   let CartSum = 0
   let Shipping = 0
-  let Pack = 0
+  // let Pack = 0
   let Total = 0
   let TOTALS = {}
 
   Array.from(UserCart.values()).map((card, i) => {
-    if (card.SALE_PERCENT > 0 && card.SALE_PRICE > 0) {
-      CartSum += card.SALE_PRICE * card.PRODUCT_CART_COUNT
+    if (card.salePrice > 0 && card.salePrice > 0) {
+      CartSum += card.salePrice * card.cartCount
     } else {
-      CartSum += card.PRODUCT_PRICE * card.PRODUCT_CART_COUNT
+      CartSum += card.price * card.cartCount
     }
   })
 
-  if (CartSum > 0) {
-    if (CartSum <= 20) Shipping = 2.99
+  // if (CartSum > 0) {
+  Shipping = (CartSum * 24) / 100
 
-    Pack = (CartSum + Shipping) * 0.015
+  // Pack = (CartSum + Shipping) * 0.015
 
-    Total = CartSum + Shipping + Pack
-  }
+  Total = CartSum + Shipping
+  // + Pack
+  // }
 
   TOTALS = {
     CartSum: Number(CartSum),
     Shipping: Number(Shipping),
-    Pack: Number(Pack),
+    // Pack: Number(Pack),
     Total: Number(Total),
   }
   localStorage.setItem('TOTALS', JSON.stringify(TOTALS))
@@ -247,9 +248,9 @@ export const CartSumData = () => {
     document.getElementById('Shipping').innerHTML = `${financial2(
       Number(SUM.Shipping),
     )}₾`
-    document.getElementById('Pack').innerHTML = `${financial2(
-      Number(SUM.Pack),
-    )}₾`
+    // document.getElementById('Pack').innerHTML = `${financial2(
+    //   Number(SUM.Pack),
+    // )}₾`
     document.getElementById('Total').innerHTML = `${financial2(
       Number(SUM.Total),
     )}₾`

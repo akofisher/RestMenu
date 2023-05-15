@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import More from '../../Img/more.svg'
 // import { SINGLE_PAGE } from '../../routes'
-import { SaveCart } from '../../CartLogic'
+import { CartSumData, GetCartCount, SaveCart } from '../../CartLogic'
 import Cart from '../../Img/cart.png'
 import './ProductCard.css'
 
@@ -64,9 +64,11 @@ export default function ProductCard({ props }) {
           </div>
           <img src={More} alt="MoreIcon" className="MoreIcon" />
           <img
-            onClick={(e) => {
+            onClick={async (e) => {
               e.stopPropagation()
-              SaveCart(props, count)
+              await SaveCart(props, count)
+              await GetCartCount()
+              await CartSumData()
             }}
             src={Cart}
             alt="CartIcon"
@@ -125,9 +127,11 @@ export default function ProductCard({ props }) {
               </button>
             </div>
             <img
-              onClick={(e) => {
+              onClick={async (e) => {
                 e.stopPropagation()
-                SaveCart(props, count)
+                await SaveCart(props, count)
+                await GetCartCount()
+                await CartSumData()
               }}
               src={Cart}
               alt="CartIcon"

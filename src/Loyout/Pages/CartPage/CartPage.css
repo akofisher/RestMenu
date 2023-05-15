@@ -1,0 +1,32 @@
+.totals_container {
+  width: 100%;
+  border-top: 1px solid #e8dfe0;
+  padding: 10px 0px;
+}
+
+.totals_rows {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.GoBack {
+  width: 20%;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 600;
+  font-size: 12px;
+  color: #000000;
+  align-self: flex-start;
+  text-decoration: underline;
+  white-space: nowrap;
+}
+
+.totals_name {
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  color: #000000;
+  align-self: flex-start;
+  white-space: nowrap;
+  margin: 5px 0px;
+}
