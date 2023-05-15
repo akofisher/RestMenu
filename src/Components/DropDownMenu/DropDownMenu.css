@@ -12,7 +12,7 @@
   border-radius: 8px;
   z-index: 99999999999;
   max-height: 450px;
-  overflow-y: scroll;
+  overflow-y: auto;
 }
 
 .DropDownButton {

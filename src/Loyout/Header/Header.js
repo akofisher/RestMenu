@@ -1,4 +1,5 @@
 import React from 'react'
+// import { useTranslation } from 'react-i18next'
 import { useNavigate } from 'react-router-dom'
 import { GetCartCount } from '../../CartLogic'
 import Cart from '../../Img/cart.png'
@@ -11,6 +12,11 @@ import './Header.css'
 export default function Header() {
   let CartCount = GetCartCount()
   let nav = useNavigate()
+  // const { t, i18n } = useTranslation()
+
+  // const ChangeLanguage = (language) => {
+  //   i18n.changeLanguage(language)
+  // }
   return (
     <div className="HeaderMainCont">
       <img
@@ -35,6 +41,15 @@ export default function Header() {
         <a href="https://instagram.com" target="_blank" className="SocLink">
           <img src={instagram} alt="Social Logo" className="SocLogo" />
         </a>
+        {/* <select
+          onChange={(val) => ChangeLanguage(val.target.value)}
+          name="languages"
+          id="languages"
+        >
+          <option value="ge">ქართული</option>
+          <option value="ru">Русскиӣ</option>
+          <option value="en">English</option>
+        </select> */}
       </div>
     </div>
   )
